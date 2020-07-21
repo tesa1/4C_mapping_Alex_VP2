@@ -9,7 +9,7 @@ In a 4C experiment DNA fragments are ligated to your fragment of interest, which
 
 The analysis pipeline consists of three steps that has the user has to run:
 
-#### 1. Creating a fragment map
+#### 1. Creating a fragment map (note this only needs to be done once because the same REs were used for all 3 Viewpoints)
 
 To create a fragment map for you enzyme combination of choice please run the generate_fragment_map.pl script. For a fragment map for DpnII and Csp6I of the human genome you would use the following command:
 
