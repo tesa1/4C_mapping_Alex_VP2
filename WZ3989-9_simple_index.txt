@@ -1,0 +1,1 @@
+E2_1h_vp2_replicate1	TAAAGGGAAGGACAGAATTGGATC	/home/t.severson/resources/hg19_sed.fa	GATC	CATG	chr6
