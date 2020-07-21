@@ -48,7 +48,7 @@ Note that the reference should also have bwa index. Also note that the second re
 nt setup it is not possible to mix restriction enzyme combination or reference genomes. If you have multiple genomes or multiple restriction enzyme combinations please create a seperate index file
 for each one.
 
-The following command is used to process and map your data.
+The following command is used to process and map your data with 10 threads.
 
 ```
 perl mapping_pipeline.pl WZ3989-9_simple_index.txt WZ3989-9 /DATA/t.severson/alex_4c/alex_files/5986_9_WZ3989-9_GATCAG_S13_R1_001.fastq.gz 10 gatc_catc_fragment_map/ 59_repeat/59
