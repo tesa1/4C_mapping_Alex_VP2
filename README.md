@@ -25,24 +25,24 @@ The fragment map will be strored in the directory `gatc_catc_fragment_map/`
 We would like to filter the fragment map for repetitive fragments, therefore we will map all the fragments back to genome we selected them from to test whether they are unique or not. For the fragment map we just created will should run the following command:
 
 ```
-mkdir 50_repeat
-perl getRepeats.pl gatc_catc_fragment_map/ GATC 50 ~/resources/hg19_sed.fa 50_repeat/
+mkdir 59_repeat
+perl getRepeats.pl gatc_catc_fragment_map/ GATC 50 ~/resources/hg19_sed.fa 59_repeat/
 
-## note, this will store your data into a folder called '50' in your test_repeat folder. 
-## This will break the next script. Add the '50' to the next command. 
+## note, this will store your data into a folder called '59' in your test_repeat folder. 
+## This will break the next script. Add the '59' to the next command. 
 ```
 
-The results will be placed in the directory 50_repeat/. Note the 50, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 75, a primer of 20nt, sequence between the primer and the restriction site of 9nt and a 4nt restriction site, your sequence length should be `75 - 20 - 9 + 4 = 50`. 
+The results will be placed in the directory 59_repeat/. Note the 59, this is the length of the ligated fragment including the restriction site. Note that for every different sequencing length for you 4C experiment, you will need to create a new repeat map. So if you have a sequence length of 75, a primer of 20ntand a 4nt restriction site, your sequence length should be `75 - 20 + 4 = 59`. 
 
 
 
-#### 3. Splitting FASTQ and mapping to the genome (use WZ3989-1_simple_index.txt above as a working example)
+#### 3. Splitting FASTQ and mapping to the genome (use WZ3989-9_simple_index.txt above as a working example)
 
 The preprocessing of the data is now finished and you can start to map your data to the genome. The only thing you need is an index file, which contains the minimal information of your 4C experiment. Add the 1st restriction enzyme onto the end of your primer sequence. The structure of this file is as follows:
 
 |Experiment name | primer sequence + spacer + RE | path to reference genome | restriction enzyme 1 | restriction enzyme 2 | viewpoint chromosome |
 |---------- | ---------- | ----------|----------|----------|----------|
-|E2_1h_vp1_replicate1 | CGTATGCCAAGAACAGGTAACAGTTTCTGGATC**GATC** | /home/t.severson/resources/hg19_sed.fa | GATC | GTAC | chr6 |
+|E2_1h_vp2_replicate1 | TAAAGGGAAGGACAGAATTG**GATC** | /home/t.severson/resources/hg19_sed.fa | GATC | GTAC | chr6 |
 
 Note that the reference should also have bwa index. Also note that the second restriction enzyme is not strictly necessary, but the chromosome id should always be in the 6th column. Given the curre
 nt setup it is not possible to mix restriction enzyme combination or reference genomes. If you have multiple genomes or multiple restriction enzyme combinations please create a seperate index file
@@ -51,7 +51,7 @@ for each one.
 The following command is used to process and map your data.
 
 ```
-perl mapping_pipeline.pl WZ3989-1_simple_index.txt WZ3989-1 /DATA/t.severson/alex_4c/alex_files/5986_1_WZ3989-1_ATCACG_S2_R1_001.fastq.gz 10 gatc_catc_fragment_map/ 50_repeat/50
+perl mapping_pipeline.pl WZ3989-9_simple_index.txt WZ3989-9 /DATA/t.severson/alex_4c/alex_files/5986_9_WZ3989-9_GATCAG_S13_R1_001.fastq.gz 10 gatc_catc_fragment_map/ 59_repeat/59
 ```
 
 More detailed information is given in the scripts themselves.
