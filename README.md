@@ -26,7 +26,7 @@ We would like to filter the fragment map for repetitive fragments, therefore we 
 
 ```
 mkdir 59_repeat
-perl getRepeats.pl gatc_catc_fragment_map/ GATC 50 ~/resources/hg19_sed.fa 59_repeat/
+perl getRepeats.pl gatc_catc_fragment_map/ GATC 59 ~/resources/hg19_sed.fa 59_repeat/
 
 ## note, this will store your data into a folder called '59' in your test_repeat folder. 
 ## This will break the next script. Add the '59' to the next command. 
